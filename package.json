@@ -17,6 +17,7 @@
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "chai": "^4.2.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "eslint": "6.8.x",
@@ -24,10 +25,14 @@
     "eslint-plugin-import": "2.20.x",
     "express": "~4.16.1",
     "jest": "^26.1.0",
+    "mocha": "^8.0.1",
+    "mongoose": "^5.9.22",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2"
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "supertest": "^4.0.2"
   },
   "babel": {
     "presets": [
