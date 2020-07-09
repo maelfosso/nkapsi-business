@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -15,9 +17,7 @@ var _morgan = _interopRequireDefault(require("morgan"));
 
 var _index = _interopRequireDefault(require("./routes/index"));
 
-var _users = _interopRequireDefault(require("./routes/users"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _business = _interopRequireDefault(require("./routes/business"));
 
 var app = (0, _express["default"])();
 app.use((0, _morgan["default"])('dev'));
@@ -28,6 +28,6 @@ app.use(_express["default"].urlencoded({
 app.use((0, _cookieParser["default"])());
 app.use(_express["default"]["static"](_path["default"].join(__dirname, '../public')));
 app.use('/', _index["default"]);
-app.use('/users', _users["default"]);
+app.use('/users', _business["default"]);
 var _default = app;
 exports["default"] = _default;
