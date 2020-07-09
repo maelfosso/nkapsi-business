@@ -7,12 +7,12 @@
     "build": "npm-run-all clean transpile",
     "server": "node ./dist/bin/www",
     "dev": "NODE_ENV=development npm-run-all build server",
-    "testing": "NOVE_ENV=testing npm-run-all build server",
-    "prod": "NOVE_ENV=production npm-run-all build server",
+    "testing": "NODE_ENV=test npm-run-all build server",
+    "prod": "NODE_ENV=production npm-run-all build server",
     "transpile": "babel ./src --out-dir dist",
     "clean": "rimraf dist",
     "watch:dev": "nodemon",
-    "test": "mocha --require @babel/register --timeout 10000 --recursive --exit"
+    "test": "jest"
   },
   "dependencies": {
     "@babel/cli": "^7.10.4",
@@ -56,7 +56,10 @@
     ]
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.10.4",

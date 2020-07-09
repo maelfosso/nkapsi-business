@@ -1,9 +1,9 @@
 import { request } from 'supertest';
-import { expect } from 'chai';
+// import { expect } from 'chai';
 import Business from '../../src/models/business';
 import { app } from '../../src/app';
 
-console.log(Business);
+// console.log(Business);
 
 describe("api/business", () => {
   beforeEach(async (done) => {

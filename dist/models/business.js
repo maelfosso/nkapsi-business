@@ -21,5 +21,6 @@ var BusinessSchema = new _mongoose.Schema({
   }]
 });
 var Business = (0, _mongoose.model)('Business', BusinessSchema);
-var _default = Business;
+var _default = Business; // mocha --require @babel/register --timeout 10000 --recursive --exit"
+
 exports["default"] = _default;
