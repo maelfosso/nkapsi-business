@@ -18,7 +18,8 @@ var config = {
     password: MONGO_PASSWORD || '',
     port: MONGO_PORT || '27017',
     db: MONGO_DB || 'nkapsi_business_development',
-    uri: "mongodb://".concat(MONGO_USERNAME, ":").concat(MONGO_PASSWORD, "@").concat(MONGO_HOSTNAME, ":").concat(MONGO_PORT, "/").concat(MONGO_DB, "?authSource=admin")
+    uri: "mongodb://".concat(MONGO_HOSTNAME || '127.0.0.1', ":").concat(MONGO_PORT || '27017', "/").concat(MONGO_DB || 'nkapsi_business_test') // uri: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`,
+
   }
 };
 var _default = config;

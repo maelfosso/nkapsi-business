@@ -11,9 +11,13 @@ var _debug = _interopRequireDefault(require("debug"));
 
 var _http = _interopRequireDefault(require("http"));
 
+var _mongoose = _interopRequireDefault(require("mongoose"));
+
 var _app = _interopRequireDefault(require("../app"));
 
-var debug = (0, _debug["default"])('business-api:server');
+var _config = _interopRequireDefault(require("../config/config"));
+
+var debug = (0, _debug["default"])('nkapsi:business-api:server');
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -89,6 +93,19 @@ function onListening() {
  */
 
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+debug('[CONFIG] ', _config["default"].db.uri);
+
+_mongoose["default"].connect(_config["default"].db.uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+}).then(function () {
+  debug("Connected to MongoDB at ".concat(_config["default"].db.uri));
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+})["catch"](function (err) {
+  debug("Failed to connect to MongoDB", err); // process.exit();
+}); // server.listen(port);
+// server.on('error', onError);
+// server.on('listening', onListening);

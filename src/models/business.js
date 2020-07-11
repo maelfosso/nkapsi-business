@@ -19,5 +19,3 @@ const BusinessSchema = new Schema({
 const Business = model('Business', BusinessSchema);
 
 export default Business;
-
-// mocha --require @babel/register --timeout 10000 --recursive --exit"

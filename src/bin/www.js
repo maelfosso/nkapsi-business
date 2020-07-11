@@ -6,9 +6,13 @@
 
 import debugLib from 'debug';
 import http from 'http';
+import mongoose from 'mongoose';
+
 import app from '../app';
 
-const debug = debugLib('business-api:server');
+import config from '../config/config';
+
+const debug = debugLib('nkapsi:business-api:server');
 
 /**
  * Normalize a port into a number, string, or false.
@@ -89,6 +93,26 @@ function onListening() {
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+debug('[CONFIG] ', config.db.uri);
+mongoose
+.connect(config.db.uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+})
+.then(() => {
+  debug(`Connected to MongoDB at ${config.db.uri}`);
+
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+
+})
+.catch((err) => {
+  debug("Failed to connect to MongoDB", err);
+  // process.exit();
+});
+
+// server.listen(port);
+// server.on('error', onError);
+// server.on('listening', onListening);
