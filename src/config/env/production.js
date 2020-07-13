@@ -16,6 +16,10 @@ const config = {
     port: MONGO_PORT || '27017',
     db: MONGO_DB || 'nkapsi_business_production',
     uri: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`,
+  },
+  kafka: {
+    hostname: KAFKA_HOSTNAME || KAFKA_HOST || '192.168.8.101',
+    port: KAFKA_PORT || '9092'
   }
 };
 
