@@ -110,9 +110,5 @@ mongoose
 })
 .catch((err) => {
   debug("Failed to connect to MongoDB", err);
-  // process.exit();
 });
 
-// server.listen(port);
-// server.on('error', onError);
-// server.on('listening', onListening);

@@ -8,6 +8,7 @@ const debug = debugLib('nkapsi:business-api:business-controller');
 const create = async (req, res) => {
   const { body } = req;
   debug(body);
+  
   const business = new Business({
     ...body
   });
