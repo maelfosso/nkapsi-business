@@ -7,6 +7,7 @@ import debugLib from 'debug';
 
 import indexRouter from './routes/index';
 import businessRouter from './routes/business';
+import routes from './routes/routes';
 
 const debug = debugLib('nkapsi:business-api:app');
 
@@ -18,7 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/', indexRouter);
-app.use('/business', businessRouter);
+// app.use('/', indexRouter);
+// app.use('/business', businessRouter);
+app.use('/api', routes);
 
 export default app;
