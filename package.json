@@ -23,7 +23,7 @@
     "eslint": "6.8.x",
     "eslint-config-airbnb-base": "14.1.x",
     "eslint-plugin-import": "2.20.x",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "faker": "^4.1.0",
     "jest": "^26.1.0",
     "kafka-node": "^5.0.0",
